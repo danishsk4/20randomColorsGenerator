@@ -17,7 +17,7 @@
 
         .child {
             box-shadow: 3px 3px 10px #000;
-
+            font-size: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -63,9 +63,8 @@
             font-size: 20px;
             border-radius: 10px;
             outline: none;
+            border: 0;
         }
-
-        #headingText {}
     </style>
 </head>
 
@@ -85,16 +84,15 @@
         for (let i = 0; i < 20; i++) {
             let childBox = document.createElement("div");
             childBox.classList.add("child");
-            let color = `rgb(${Math.ceil(Math.random() * 255)},${Math.ceil(Math.random() * 255)},                        ${Math.ceil(Math.random() * 255)})`
-            childBox.style.backgroundColor = color
-            childBox.innerText = color
-            childBox.style.fontSize = "20px"
+            let color = `rgb(${Math.ceil(Math.random() * 255)},${Math.ceil(Math.random() * 255)},                        ${Math.ceil(Math.random() * 255)})`;
+            childBox.style.backgroundColor = color;
+            childBox.innerText = color;
 
             gridBox.append(childBox);
         }
 
         //refreshing colors
-        let changBtn = document.getElementById("changBtn")
+        let changBtn = document.getElementById("changBtn");
         changBtn.addEventListener("click", () => location.reload());
     </script>
 </body>
