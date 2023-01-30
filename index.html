@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Random-Color-Generator</title>
+    <style>
+        #ParentBox {
+            max-width: 1150px;
+            min-width: 300px;
+
+            margin: 0 auto;
+        }
+
+        .child {
+            box-shadow: 3px 3px 10px #000;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 250px;
+            height: 125px;
+            border-radius: 5px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .colorCode {}
+
+        .gridBox {
+            /* display: grid; */
+            font-family: cursive;
+            color: #fff;
+            text-shadow: 2px 2px 4px #000;
+            justify-content: center;
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 auto;
+            grid-template-columns: 270px 270px 270px 270px;
+            row-gap: 15px;
+            column-gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .Heading {
+            font-size: 25px;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        #changBtn {
+            margin: auto 0;
+            height: 60px;
+            background-color: rgb(253, 19, 67);
+            color: #fff;
+            outline: none;
+            padding: 15px 10px;
+            letter-spacing: 3px;
+            font-size: 20px;
+            border-radius: 10px;
+            outline: none;
+        }
+
+        #headingText {}
+    </style>
+</head>
+
+<body>
+    <div class="Heading">
+        <h2 id="headingText">Get Random Colors On Every Click</h2>
+        <button type="button" id="changBtn" autofocus>Change</button>
+    </div>
+    <div id="ParentBox">
+        <div class="gridBox" id="gridBox">
+
+        </div>
+    </div>
+
+    <script>
+        let gridBox = document.getElementById("gridBox");
+        for (let i = 0; i < 20; i++) {
+            let childBox = document.createElement("div");
+            childBox.classList.add("child");
+            let color = `rgb(${Math.ceil(Math.random() * 255)},${Math.ceil(Math.random() * 255)},                        ${Math.ceil(Math.random() * 255)})`
+            childBox.style.backgroundColor = color
+            childBox.innerText = color
+            childBox.style.fontSize = "20px"
+
+            gridBox.append(childBox);
+        }
+
+        //refreshing colors
+        let changBtn = document.getElementById("changBtn")
+        changBtn.addEventListener("click", () => location.reload());
+    </script>
+</body>
+
+</html>
